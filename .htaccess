@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L] 
+</IfModule>
+Options -Indexes
+<Files ~ "\.sql$">  
+    Order Allow,Deny
+    Deny from All
+</Files>
+<Files ~ "\.(css|js|log|jpg|jpeg|png|gif|pdf|txt|bmp|mp4|mov|ogg|wmv|webm|flv|mpg|mp2|mpeg|mpe|mpv|m4p|m4v|mp3|wav|acc|oga|m4a)$">
+   order deny,allow
+   Require local
+   allow from all
+   deny from all
+</Files>
